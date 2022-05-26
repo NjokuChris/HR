@@ -1,0 +1,11 @@
+C:\projects\HR\BOL\bin\Debug\BOL.dll.config
+C:\projects\HR\BOL\bin\Debug\BOL.dll
+C:\projects\HR\BOL\bin\Debug\BOL.pdb
+C:\projects\HR\BOL\bin\Debug\EntityFramework.dll
+C:\projects\HR\BOL\bin\Debug\EntityFramework.SqlServer.dll
+C:\projects\HR\BOL\bin\Debug\EntityFramework.xml
+C:\projects\HR\BOL\bin\Debug\EntityFramework.SqlServer.xml
+C:\projects\HR\BOL\obj\Debug\BOL.csproj.CopyComplete
+C:\projects\HR\BOL\obj\Debug\BOL.dll
+C:\projects\HR\BOL\obj\Debug\BOL.pdb
+C:\projects\HR\BOL\obj\Debug\BOL.csprojAssemblyReference.cache

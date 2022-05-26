@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HumanResourceModelStoreContainer" CdmEntityContainer="HumanResourceEntities">
+    <EntitySetMapping Name="banks">
+      <EntityTypeMapping TypeName="HumanResourceModel.bank">
+        <MappingFragment StoreEntitySet="banks">
+          <ScalarProperty Name="bank_id" ColumnName="bank_id" />
+          <ScalarProperty Name="bank_name" ColumnName="bank_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cadres">
+      <EntityTypeMapping TypeName="HumanResourceModel.cadre">
+        <MappingFragment StoreEntitySet="cadre">
+          <ScalarProperty Name="cadre_id" ColumnName="cadre_id" />
+          <ScalarProperty Name="cadre1" ColumnName="cadre" />
+          <ScalarProperty Name="cader_code" ColumnName="cader_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comp_branch">
+      <EntityTypeMapping TypeName="HumanResourceModel.comp_branch">
+        <MappingFragment StoreEntitySet="comp_branch">
+          <ScalarProperty Name="branch_id" ColumnName="branch_id" />
+          <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+          <ScalarProperty Name="branch_code" ColumnName="branch_code" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+          <ScalarProperty Name="branch_head" ColumnName="branch_head" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="companies">
+      <EntityTypeMapping TypeName="HumanResourceModel.company">
+        <MappingFragment StoreEntitySet="company">
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="company1" ColumnName="company" />
+          <ScalarProperty Name="company_code" ColumnName="company_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departments">
+      <EntityTypeMapping TypeName="HumanResourceModel.department">
+        <MappingFragment StoreEntitySet="departments">
+          <ScalarProperty Name="department_id" ColumnName="department_id" />
+          <ScalarProperty Name="department_name" ColumnName="department_name" />
+          <ScalarProperty Name="dept_code" ColumnName="dept_code" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="hod_id" ColumnName="hod_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dept_units">
+      <EntityTypeMapping TypeName="HumanResourceModel.dept_units">
+        <MappingFragment StoreEntitySet="dept_units">
+          <ScalarProperty Name="dept_unit_id" ColumnName="dept_unit_id" />
+          <ScalarProperty Name="dept_unit" ColumnName="dept_unit" />
+          <ScalarProperty Name="department_id" ColumnName="department_id" />
+          <ScalarProperty Name="dept_unit_code" ColumnName="dept_unit_code" />
+          <ScalarProperty Name="unit_head_id" ColumnName="unit_head_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="divisions">
+      <EntityTypeMapping TypeName="HumanResourceModel.division">
+        <MappingFragment StoreEntitySet="divisions">
+          <ScalarProperty Name="division_id" ColumnName="division_id" />
+          <ScalarProperty Name="division1" ColumnName="division" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="division_head_id" ColumnName="division_head_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employee_type">
+      <EntityTypeMapping TypeName="HumanResourceModel.employee_type">
+        <MappingFragment StoreEntitySet="employee_type">
+          <ScalarProperty Name="employee_type_id" ColumnName="employee_type_id" />
+          <ScalarProperty Name="employee_type1" ColumnName="employee_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees">
+      <EntityTypeMapping TypeName="HumanResourceModel.employee">
+        <MappingFragment StoreEntitySet="employees">
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="f_name" ColumnName="f_name" />
+          <ScalarProperty Name="m_name" ColumnName="m_name" />
+          <ScalarProperty Name="l_name" ColumnName="l_name" />
+          <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="employee_no" ColumnName="employee_no" />
+          <ScalarProperty Name="employee_type_id" ColumnName="employee_type_id" />
+          <ScalarProperty Name="department_id" ColumnName="department_id" />
+          <ScalarProperty Name="dept_unit_id" ColumnName="dept_unit_id" />
+          <ScalarProperty Name="division_id" ColumnName="division_id" />
+          <ScalarProperty Name="job_title_id" ColumnName="job_title_id" />
+          <ScalarProperty Name="grade_level_id" ColumnName="grade_level_id" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="hire_date" ColumnName="hire_date" />
+          <ScalarProperty Name="confirm_date" ColumnName="confirm_date" />
+          <ScalarProperty Name="confirm_status" ColumnName="confirm_status" />
+          <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+          <ScalarProperty Name="H_address" ColumnName="H_address" />
+          <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+          <ScalarProperty Name="marital_status" ColumnName="marital_status" />
+          <ScalarProperty Name="state_origin_id" ColumnName="state_origin_id" />
+          <ScalarProperty Name="prob_period" ColumnName="prob_period" />
+          <ScalarProperty Name="bank_id" ColumnName="bank_id" />
+          <ScalarProperty Name="bank_acc_no" ColumnName="bank_acc_no" />
+          <ScalarProperty Name="pen_provider_id" ColumnName="pen_provider_id" />
+          <ScalarProperty Name="pen_pin" ColumnName="pen_pin" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="quali_summ" ColumnName="quali_summ" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="email2" ColumnName="email2" />
+          <ScalarProperty Name="wed_anni_date" ColumnName="wed_anni_date" />
+          <ScalarProperty Name="no_child" ColumnName="no_child" />
+          <ScalarProperty Name="hobby" ColumnName="hobby" />
+          <ScalarProperty Name="branch_id" ColumnName="branch_id" />
+          <ScalarProperty Name="salary_annual" ColumnName="salary_annual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="grades">
+      <EntityTypeMapping TypeName="HumanResourceModel.grade">
+        <MappingFragment StoreEntitySet="grade">
+          <ScalarProperty Name="grade_id" ColumnName="grade_id" />
+          <ScalarProperty Name="grade1" ColumnName="grade" />
+          <ScalarProperty Name="grade_no" ColumnName="grade_no" />
+          <ScalarProperty Name="grade_code" ColumnName="grade_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="grade_level">
+      <EntityTypeMapping TypeName="HumanResourceModel.grade_level">
+        <MappingFragment StoreEntitySet="grade_level">
+          <ScalarProperty Name="level_id" ColumnName="level_id" />
+          <ScalarProperty Name="grade_id" ColumnName="grade_id" />
+          <ScalarProperty Name="step_id" ColumnName="step_id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="job_class">
+      <EntityTypeMapping TypeName="HumanResourceModel.job_class">
+        <MappingFragment StoreEntitySet="job_class">
+          <ScalarProperty Name="job_class_id" ColumnName="job_class_id" />
+          <ScalarProperty Name="job_class1" ColumnName="job_class" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="leave_allow_percent" ColumnName="leave_allow_percent" />
+          <ScalarProperty Name="leave_days" ColumnName="leave_days" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="job_title">
+      <EntityTypeMapping TypeName="HumanResourceModel.job_title">
+        <MappingFragment StoreEntitySet="job_title">
+          <ScalarProperty Name="job_title_id" ColumnName="job_title_id" />
+          <ScalarProperty Name="job_title1" ColumnName="job_title" />
+          <ScalarProperty Name="job_title_code" ColumnName="job_title_code" />
+          <ScalarProperty Name="job_class_id" ColumnName="job_class_id" />
+          <ScalarProperty Name="department_id" ColumnName="department_id" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="supervisor_type_id" ColumnName="supervisor_type_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pen_providers">
+      <EntityTypeMapping TypeName="HumanResourceModel.pen_providers">
+        <MappingFragment StoreEntitySet="pen_providers">
+          <ScalarProperty Name="pen_provider_id" ColumnName="pen_provider_id" />
+          <ScalarProperty Name="pen_provider_name" ColumnName="pen_provider_name" />
+          <ScalarProperty Name="pen_code" ColumnName="pen_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="states">
+      <EntityTypeMapping TypeName="HumanResourceModel.state">
+        <MappingFragment StoreEntitySet="states">
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+          <ScalarProperty Name="state1" ColumnName="state" />
+          <ScalarProperty Name="state_capital" ColumnName="state_capital" />
+          <ScalarProperty Name="state_code" ColumnName="state_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="steps">
+      <EntityTypeMapping TypeName="HumanResourceModel.step">
+        <MappingFragment StoreEntitySet="steps">
+          <ScalarProperty Name="step_id" ColumnName="step_id" />
+          <ScalarProperty Name="step1" ColumnName="step" />
+          <ScalarProperty Name="step_code" ColumnName="step_code" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="HumanResourceModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="user_status" ColumnName="user_status" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="sur_name" ColumnName="sur_name" />
+          <ScalarProperty Name="m_name" ColumnName="m_name" />
+          <ScalarProperty Name="f_name" ColumnName="f_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

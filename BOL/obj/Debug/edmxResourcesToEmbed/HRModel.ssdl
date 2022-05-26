@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HumanResourceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="banks">
+    <Key>
+      <PropertyRef Name="bank_id" />
+    </Key>
+    <Property Name="bank_id" Type="int" Nullable="false" />
+    <Property Name="bank_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="cadre">
+    <Key>
+      <PropertyRef Name="cadre_id" />
+    </Key>
+    <Property Name="cadre_id" Type="int" Nullable="false" />
+    <Property Name="cadre" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="cader_code" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="comp_branch">
+    <Key>
+      <PropertyRef Name="branch_id" />
+    </Key>
+    <Property Name="branch_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="branch_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="branch_code" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="text" />
+    <Property Name="state_id" Type="int" />
+    <Property Name="branch_head" Type="int" />
+    <Property Name="company_id" Type="int" />
+  </EntityType>
+  <EntityType Name="company">
+    <Key>
+      <PropertyRef Name="company_id" />
+    </Key>
+    <Property Name="company_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="company" Type="nvarchar" MaxLength="50" />
+    <Property Name="company_code" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="departments">
+    <Key>
+      <PropertyRef Name="department_id" />
+    </Key>
+    <Property Name="department_id" Type="int" Nullable="false" />
+    <Property Name="department_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dept_code" Type="nchar" MaxLength="10" />
+    <Property Name="company_id" Type="int" />
+    <Property Name="status" Type="nchar" MaxLength="10" />
+    <Property Name="hod_id" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="dept_units">
+    <Key>
+      <PropertyRef Name="dept_unit_id" />
+    </Key>
+    <Property Name="dept_unit_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dept_unit" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="department_id" Type="int" Nullable="false" />
+    <Property Name="dept_unit_code" Type="nchar" MaxLength="10" />
+    <Property Name="unit_head_id" Type="int" />
+  </EntityType>
+  <EntityType Name="divisions">
+    <Key>
+      <PropertyRef Name="division_id" />
+    </Key>
+    <Property Name="division_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="division" Type="nvarchar" MaxLength="50" />
+    <Property Name="company_id" Type="int" />
+    <Property Name="division_head_id" Type="int" />
+  </EntityType>
+  <EntityType Name="employee_type">
+    <Key>
+      <PropertyRef Name="employee_type_id" />
+    </Key>
+    <Property Name="employee_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="employee_type" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="employees">
+    <Key>
+      <PropertyRef Name="employee_id" />
+    </Key>
+    <Property Name="employee_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="f_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="m_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="l_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="emp_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="employee_no" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="employee_type_id" Type="int" Nullable="false" />
+    <Property Name="department_id" Type="int" Nullable="false" />
+    <Property Name="dept_unit_id" Type="int" Nullable="false" />
+    <Property Name="division_id" Type="int" />
+    <Property Name="job_title_id" Type="int" />
+    <Property Name="grade_level_id" Type="int" />
+    <Property Name="company_id" Type="int" />
+    <Property Name="gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="hire_date" Type="date" />
+    <Property Name="confirm_date" Type="date" />
+    <Property Name="confirm_status" Type="nvarchar" MaxLength="50" />
+    <Property Name="birth_date" Type="date" />
+    <Property Name="H_address" Type="text" />
+    <Property Name="phone_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="location" Type="nvarchar" MaxLength="50" />
+    <Property Name="state_id" Type="nchar" MaxLength="10" />
+    <Property Name="marital_status" Type="nvarchar" MaxLength="50" />
+    <Property Name="state_origin_id" Type="int" />
+    <Property Name="prob_period" Type="nvarchar" MaxLength="150" />
+    <Property Name="bank_id" Type="int" />
+    <Property Name="bank_acc_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="pen_provider_id" Type="int" />
+    <Property Name="pen_pin" Type="nchar" MaxLength="10" />
+    <Property Name="image" Type="image" />
+    <Property Name="quali_summ" Type="nvarchar" MaxLength="150" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="email2" Type="nvarchar" MaxLength="50" />
+    <Property Name="wed_anni_date" Type="date" />
+    <Property Name="no_child" Type="int" />
+    <Property Name="hobby" Type="text" />
+    <Property Name="branch_id" Type="int" />
+    <Property Name="salary_annual" Type="float" />
+  </EntityType>
+  <EntityType Name="grade">
+    <Key>
+      <PropertyRef Name="grade_id" />
+    </Key>
+    <Property Name="grade_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="grade" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="grade_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="grade_code" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="grade_level">
+    <Key>
+      <PropertyRef Name="level_id" />
+    </Key>
+    <Property Name="level_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="grade_id" Type="int" />
+    <Property Name="step_id" Type="int" />
+    <Property Name="description" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="job_class">
+    <Key>
+      <PropertyRef Name="job_class_id" />
+    </Key>
+    <Property Name="job_class_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="job_class" Type="nvarchar" MaxLength="150" />
+    <Property Name="company_id" Type="int" />
+    <Property Name="leave_allow_percent" Type="float" />
+    <Property Name="leave_days" Type="int" />
+  </EntityType>
+  <EntityType Name="job_title">
+    <Key>
+      <PropertyRef Name="job_title_id" />
+    </Key>
+    <Property Name="job_title_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="job_title" Type="nvarchar" MaxLength="50" />
+    <Property Name="job_title_code" Type="nvarchar" MaxLength="50" />
+    <Property Name="job_class_id" Type="int" />
+    <Property Name="department_id" Type="int" />
+    <Property Name="company_id" Type="int" />
+    <Property Name="supervisor_type_id" Type="int" />
+  </EntityType>
+  <EntityType Name="pen_providers">
+    <Key>
+      <PropertyRef Name="pen_provider_id" />
+    </Key>
+    <Property Name="pen_provider_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pen_provider_name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="pen_code" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="states">
+    <Key>
+      <PropertyRef Name="state_id" />
+    </Key>
+    <Property Name="state_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="state" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="state_capital" Type="nvarchar" MaxLength="50" />
+    <Property Name="state_code" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="steps">
+    <Key>
+      <PropertyRef Name="step_id" />
+    </Key>
+    <Property Name="step_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="step" Type="nvarchar" MaxLength="50" />
+    <Property Name="step_code" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="150" />
+    <Property Name="email" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="f_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="m_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="sur_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="password" Type="nvarchar" MaxLength="150" />
+    <Property Name="user_status" Type="nvarchar" MaxLength="50" />
+    <Property Name="created_date" Type="datetime" />
+    <Property Name="emp_id" Type="int" />
+    <Property Name="comp_id" Type="int" />
+  </EntityType>
+  <Association Name="FK_comp_branch_company">
+    <End Role="company" Type="Self.company" Multiplicity="0..1" />
+    <End Role="comp_branch" Type="Self.comp_branch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="comp_branch">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_departments_company">
+    <End Role="company" Type="Self.company" Multiplicity="0..1" />
+    <End Role="departments" Type="Self.departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="departments">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_divisions_company">
+    <End Role="company" Type="Self.company" Multiplicity="0..1" />
+    <End Role="divisions" Type="Self.divisions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="divisions">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_banks">
+    <End Role="banks" Type="Self.banks" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="banks">
+        <PropertyRef Name="bank_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="bank_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_comp_branch">
+    <End Role="comp_branch" Type="Self.comp_branch" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comp_branch">
+        <PropertyRef Name="branch_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="branch_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_company">
+    <End Role="company" Type="Self.company" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_departments">
+    <End Role="departments" Type="Self.departments" Multiplicity="1" />
+    <End Role="employees" Type="Self.employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departments">
+        <PropertyRef Name="department_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="department_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_dept_units">
+    <End Role="dept_units" Type="Self.dept_units" Multiplicity="1" />
+    <End Role="employees" Type="Self.employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dept_units">
+        <PropertyRef Name="dept_unit_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="dept_unit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_divisions">
+    <End Role="divisions" Type="Self.divisions" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="divisions">
+        <PropertyRef Name="division_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="division_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_employee_type">
+    <End Role="employee_type" Type="Self.employee_type" Multiplicity="1" />
+    <End Role="employees" Type="Self.employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employee_type">
+        <PropertyRef Name="employee_type_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="employee_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_grade_level">
+    <End Role="grade_level" Type="Self.grade_level" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grade_level">
+        <PropertyRef Name="level_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="grade_level_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_job_title">
+    <End Role="job_title" Type="Self.job_title" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="job_title">
+        <PropertyRef Name="job_title_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="job_title_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_pen_providers">
+    <End Role="pen_providers" Type="Self.pen_providers" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pen_providers">
+        <PropertyRef Name="pen_provider_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="pen_provider_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_job_class_company">
+    <End Role="company" Type="Self.company" Multiplicity="0..1" />
+    <End Role="job_class" Type="Self.job_class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="job_class">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_job_title_company">
+    <End Role="company" Type="Self.company" Multiplicity="0..1" />
+    <End Role="job_title" Type="Self.job_title" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="job_title">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_job_title_departments">
+    <End Role="departments" Type="Self.departments" Multiplicity="0..1" />
+    <End Role="job_title" Type="Self.job_title" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departments">
+        <PropertyRef Name="department_id" />
+      </Principal>
+      <Dependent Role="job_title">
+        <PropertyRef Name="department_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_job_title_job_class">
+    <End Role="job_class" Type="Self.job_class" Multiplicity="0..1" />
+    <End Role="job_title" Type="Self.job_title" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="job_class">
+        <PropertyRef Name="job_class_id" />
+      </Principal>
+      <Dependent Role="job_title">
+        <PropertyRef Name="job_class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_job_title_job_class1">
+    <End Role="job_class" Type="Self.job_class" Multiplicity="0..1" />
+    <End Role="job_title" Type="Self.job_title" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="job_class">
+        <PropertyRef Name="job_class_id" />
+      </Principal>
+      <Dependent Role="job_title">
+        <PropertyRef Name="job_class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HumanResourceModelStoreContainer">
+    <EntitySet Name="banks" EntityType="Self.banks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cadre" EntityType="Self.cadre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="comp_branch" EntityType="Self.comp_branch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="company" EntityType="Self.company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="departments" EntityType="Self.departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dept_units" EntityType="Self.dept_units" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="divisions" EntityType="Self.divisions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="employee_type" EntityType="Self.employee_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="grade" EntityType="Self.grade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="grade_level" EntityType="Self.grade_level" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="job_class" EntityType="Self.job_class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="job_title" EntityType="Self.job_title" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pen_providers" EntityType="Self.pen_providers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="states" EntityType="Self.states" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="steps" EntityType="Self.steps" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_comp_branch_company" Association="Self.FK_comp_branch_company">
+      <End Role="company" EntitySet="company" />
+      <End Role="comp_branch" EntitySet="comp_branch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_departments_company" Association="Self.FK_departments_company">
+      <End Role="company" EntitySet="company" />
+      <End Role="departments" EntitySet="departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_divisions_company" Association="Self.FK_divisions_company">
+      <End Role="company" EntitySet="company" />
+      <End Role="divisions" EntitySet="divisions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_banks" Association="Self.FK_employees_banks">
+      <End Role="banks" EntitySet="banks" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_comp_branch" Association="Self.FK_employees_comp_branch">
+      <End Role="comp_branch" EntitySet="comp_branch" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_company" Association="Self.FK_employees_company">
+      <End Role="company" EntitySet="company" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_departments" Association="Self.FK_employees_departments">
+      <End Role="departments" EntitySet="departments" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_dept_units" Association="Self.FK_employees_dept_units">
+      <End Role="dept_units" EntitySet="dept_units" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_divisions" Association="Self.FK_employees_divisions">
+      <End Role="divisions" EntitySet="divisions" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_employee_type" Association="Self.FK_employees_employee_type">
+      <End Role="employee_type" EntitySet="employee_type" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_grade_level" Association="Self.FK_employees_grade_level">
+      <End Role="grade_level" EntitySet="grade_level" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_job_title" Association="Self.FK_employees_job_title">
+      <End Role="job_title" EntitySet="job_title" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_pen_providers" Association="Self.FK_employees_pen_providers">
+      <End Role="pen_providers" EntitySet="pen_providers" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_job_class_company" Association="Self.FK_job_class_company">
+      <End Role="company" EntitySet="company" />
+      <End Role="job_class" EntitySet="job_class" />
+    </AssociationSet>
+    <AssociationSet Name="FK_job_title_company" Association="Self.FK_job_title_company">
+      <End Role="company" EntitySet="company" />
+      <End Role="job_title" EntitySet="job_title" />
+    </AssociationSet>
+    <AssociationSet Name="FK_job_title_departments" Association="Self.FK_job_title_departments">
+      <End Role="departments" EntitySet="departments" />
+      <End Role="job_title" EntitySet="job_title" />
+    </AssociationSet>
+    <AssociationSet Name="FK_job_title_job_class" Association="Self.FK_job_title_job_class">
+      <End Role="job_class" EntitySet="job_class" />
+      <End Role="job_title" EntitySet="job_title" />
+    </AssociationSet>
+    <AssociationSet Name="FK_job_title_job_class1" Association="Self.FK_job_title_job_class1">
+      <End Role="job_class" EntitySet="job_class" />
+      <End Role="job_title" EntitySet="job_title" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HumanResourceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bank">
+    <Key>
+      <PropertyRef Name="bank_id" />
+    </Key>
+    <Property Name="bank_id" Type="Int32" Nullable="false" />
+    <Property Name="bank_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="employees" Relationship="Self.FK_employees_banks" FromRole="banks" ToRole="employees" />
+  </EntityType>
+  <EntityType Name="cadre">
+    <Key>
+      <PropertyRef Name="cadre_id" />
+    </Key>
+    <Property Name="cadre_id" Type="Int32" Nullable="false" />
+    <Property Name="cadre1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cader_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="comp_branch">
+    <Key>
+      <PropertyRef Name="branch_id" />
+    </Key>
+    <Property Name="branch_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="branch_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="branch_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="state_id" Type="Int32" />
+    <Property Name="branch_head" Type="Int32" />
+    <Property Name="company_id" Type="Int32" />
+    <NavigationProperty Name="company" Relationship="Self.FK_comp_branch_company" FromRole="comp_branch" ToRole="company" />
+    <NavigationProperty Name="employees" Relationship="Self.FK_employees_comp_branch" FromRole="comp_branch" ToRole="employees" />
+  </EntityType>
+  <EntityType Name="company">
+    <Key>
+      <PropertyRef Name="company_id" />
+    </Key>
+    <Property Name="company_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="company1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="company_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="comp_branch" Relationship="Self.FK_comp_branch_company" FromRole="company" ToRole="comp_branch" />
+    <NavigationProperty Name="departments" Relationship="Self.FK_departments_company" FromRole="company" ToRole="departments" />
+    <NavigationProperty Name="divisions" Relationship="Self.FK_divisions_company" FromRole="company" ToRole="divisions" />
+    <NavigationProperty Name="employees" Relationship="Self.FK_employees_company" FromRole="company" ToRole="employees" />
+    <NavigationProperty Name="job_class" Relationship="Self.FK_job_class_company" FromRole="company" ToRole="job_class" />
+    <NavigationProperty Name="job_title" Relationship="Self.FK_job_title_company" FromRole="company" ToRole="job_title" />
+  </EntityType>
+  <EntityType Name="department">
+    <Key>
+      <PropertyRef Name="department_id" />
+    </Key>
+    <Property Name="department_id" Type="Int32" Nullable="false" />
+    <Property Name="department_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dept_code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="company_id" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="hod_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="company" Relationship="Self.FK_departments_company" FromRole="departments" ToRole="company" />
+    <NavigationProperty Name="employees" Relationship="Self.FK_employees_departments" FromRole="departments" ToRole="employees" />
+    <NavigationProperty Name="job_title" Relationship="Self.FK_job_title_departments" FromRole="departments" ToRole="job_title" />
+  </EntityType>
+  <EntityType Name="dept_units">
+    <Key>
+      <PropertyRef Name="dept_unit_id" />
+    </Key>
+    <Property Name="dept_unit_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dept_unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="department_id" Type="Int32" Nullable="false" />
+    <Property Name="dept_unit_code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="unit_head_id" Type="Int32" />
+    <NavigationProperty Name="employees" Relationship="Self.FK_employees_dept_units" FromRole="dept_units" ToRole="employees" />
+  </EntityType>
+  <EntityType Name="division">
+    <Key>
+      <PropertyRef Name="division_id" />
+    </Key>
+    <Property Name="division_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="division1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="company_id" Type="Int32" />
+    <Property Name="division_head_id" Type="Int32" />
+    <NavigationProperty Name="company" Relationship="Self.FK_divisions_company" FromRole="divisions" ToRole="company" />
+    <NavigationProperty Name="employees" Relationship="Self.FK_employees_divisions" FromRole="divisions" ToRole="employees" />
+  </EntityType>
+  <EntityType Name="employee_type">
+    <Key>
+      <PropertyRef Name="employee_type_id" />
+    </Key>
+    <Property Name="employee_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="employee_type1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="employees" Relationship="Self.FK_employees_employee_type" FromRole="employee_type" ToRole="employees" />
+  </EntityType>
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="employee_id" />
+    </Key>
+    <Property Name="employee_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="f_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="m_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="l_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="emp_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="employee_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="employee_type_id" Type="Int32" Nullable="false" />
+    <Property Name="department_id" Type="Int32" Nullable="false" />
+    <Property Name="dept_unit_id" Type="Int32" Nullable="false" />
+    <Property Name="division_id" Type="Int32" />
+    <Property Name="job_title_id" Type="Int32" />
+    <Property Name="grade_level_id" Type="Int32" />
+    <Property Name="company_id" Type="Int32" />
+    <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hire_date" Type="DateTime" Precision="0" />
+    <Property Name="confirm_date" Type="DateTime" Precision="0" />
+    <Property Name="confirm_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="birth_date" Type="DateTime" Precision="0" />
+    <Property Name="H_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="phone_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="state_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="marital_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="state_origin_id" Type="Int32" />
+    <Property Name="prob_period" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="bank_id" Type="Int32" />
+    <Property Name="bank_acc_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pen_provider_id" Type="Int32" />
+    <Property Name="pen_pin" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="quali_summ" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="wed_anni_date" Type="DateTime" Precision="0" />
+    <Property Name="no_child" Type="Int32" />
+    <Property Name="hobby" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="branch_id" Type="Int32" />
+    <Property Name="salary_annual" Type="Double" />
+    <NavigationProperty Name="bank" Relationship="Self.FK_employees_banks" FromRole="employees" ToRole="banks" />
+    <NavigationProperty Name="comp_branch" Relationship="Self.FK_employees_comp_branch" FromRole="employees" ToRole="comp_branch" />
+    <NavigationProperty Name="company" Relationship="Self.FK_employees_company" FromRole="employees" ToRole="company" />
+    <NavigationProperty Name="department" Relationship="Self.FK_employees_departments" FromRole="employees" ToRole="departments" />
+    <NavigationProperty Name="dept_units" Relationship="Self.FK_employees_dept_units" FromRole="employees" ToRole="dept_units" />
+    <NavigationProperty Name="division" Relationship="Self.FK_employees_divisions" FromRole="employees" ToRole="divisions" />
+    <NavigationProperty Name="employee_type" Relationship="Self.FK_employees_employee_type" FromRole="employees" ToRole="employee_type" />
+    <NavigationProperty Name="grade_level" Relationship="Self.FK_employees_grade_level" FromRole="employees" ToRole="grade_level" />
+    <NavigationProperty Name="job_title" Relationship="Self.FK_employees_job_title" FromRole="employees" ToRole="job_title" />
+    <NavigationProperty Name="pen_providers" Relationship="Self.FK_employees_pen_providers" FromRole="employees" ToRole="pen_providers" />
+  </EntityType>
+  <EntityType Name="grade">
+    <Key>
+      <PropertyRef Name="grade_id" />
+    </Key>
+    <Property Name="grade_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="grade1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="grade_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="grade_code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="grade_level">
+    <Key>
+      <PropertyRef Name="level_id" />
+    </Key>
+    <Property Name="level_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="grade_id" Type="Int32" />
+    <Property Name="step_id" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="employees" Relationship="Self.FK_employees_grade_level" FromRole="grade_level" ToRole="employees" />
+  </EntityType>
+  <EntityType Name="job_class">
+    <Key>
+      <PropertyRef Name="job_class_id" />
+    </Key>
+    <Property Name="job_class_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="job_class1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="company_id" Type="Int32" />
+    <Property Name="leave_allow_percent" Type="Double" />
+    <Property Name="leave_days" Type="Int32" />
+    <NavigationProperty Name="company" Relationship="Self.FK_job_class_company" FromRole="job_class" ToRole="company" />
+    <NavigationProperty Name="job_title" Relationship="Self.FK_job_title_job_class" FromRole="job_class" ToRole="job_title" />
+    <NavigationProperty Name="job_title1" Relationship="Self.FK_job_title_job_class1" FromRole="job_class" ToRole="job_title" />
+  </EntityType>
+  <EntityType Name="job_title">
+    <Key>
+      <PropertyRef Name="job_title_id" />
+    </Key>
+    <Property Name="job_title_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="job_title1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="job_title_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="job_class_id" Type="Int32" />
+    <Property Name="department_id" Type="Int32" />
+    <Property Name="company_id" Type="Int32" />
+    <Property Name="supervisor_type_id" Type="Int32" />
+    <NavigationProperty Name="company" Relationship="Self.FK_job_title_company" FromRole="job_title" ToRole="company" />
+    <NavigationProperty Name="department" Relationship="Self.FK_job_title_departments" FromRole="job_title" ToRole="departments" />
+    <NavigationProperty Name="employees" Relationship="Self.FK_employees_job_title" FromRole="job_title" ToRole="employees" />
+    <NavigationProperty Name="job_class" Relationship="Self.FK_job_title_job_class" FromRole="job_title" ToRole="job_class" />
+    <NavigationProperty Name="job_class1" Relationship="Self.FK_job_title_job_class1" FromRole="job_title" ToRole="job_class" />
+  </EntityType>
+  <EntityType Name="pen_providers">
+    <Key>
+      <PropertyRef Name="pen_provider_id" />
+    </Key>
+    <Property Name="pen_provider_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pen_provider_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pen_code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="employees" Relationship="Self.FK_employees_pen_providers" FromRole="pen_providers" ToRole="employees" />
+  </EntityType>
+  <EntityType Name="state">
+    <Key>
+      <PropertyRef Name="state_id" />
+    </Key>
+    <Property Name="state_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="state1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="state_capital" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="state_code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="step">
+    <Key>
+      <PropertyRef Name="step_id" />
+    </Key>
+    <Property Name="step_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="step1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="step_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_employees_banks">
+    <End Role="banks" Type="Self.bank" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="banks">
+        <PropertyRef Name="bank_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="bank_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_comp_branch_company">
+    <End Role="company" Type="Self.company" Multiplicity="0..1" />
+    <End Role="comp_branch" Type="Self.comp_branch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="comp_branch">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_comp_branch">
+    <End Role="comp_branch" Type="Self.comp_branch" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comp_branch">
+        <PropertyRef Name="branch_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="branch_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_departments_company">
+    <End Role="company" Type="Self.company" Multiplicity="0..1" />
+    <End Role="departments" Type="Self.department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="departments">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_divisions_company">
+    <End Role="company" Type="Self.company" Multiplicity="0..1" />
+    <End Role="divisions" Type="Self.division" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="divisions">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_company">
+    <End Role="company" Type="Self.company" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_job_class_company">
+    <End Role="company" Type="Self.company" Multiplicity="0..1" />
+    <End Role="job_class" Type="Self.job_class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="job_class">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_job_title_company">
+    <End Role="company" Type="Self.company" Multiplicity="0..1" />
+    <End Role="job_title" Type="Self.job_title" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="job_title">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_departments">
+    <End Role="departments" Type="Self.department" Multiplicity="1" />
+    <End Role="employees" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departments">
+        <PropertyRef Name="department_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="department_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_job_title_departments">
+    <End Role="departments" Type="Self.department" Multiplicity="0..1" />
+    <End Role="job_title" Type="Self.job_title" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departments">
+        <PropertyRef Name="department_id" />
+      </Principal>
+      <Dependent Role="job_title">
+        <PropertyRef Name="department_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_dept_units">
+    <End Role="dept_units" Type="Self.dept_units" Multiplicity="1" />
+    <End Role="employees" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dept_units">
+        <PropertyRef Name="dept_unit_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="dept_unit_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_divisions">
+    <End Role="divisions" Type="Self.division" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="divisions">
+        <PropertyRef Name="division_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="division_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_employee_type">
+    <End Role="employee_type" Type="Self.employee_type" Multiplicity="1" />
+    <End Role="employees" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employee_type">
+        <PropertyRef Name="employee_type_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="employee_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_grade_level">
+    <End Role="grade_level" Type="Self.grade_level" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grade_level">
+        <PropertyRef Name="level_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="grade_level_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_job_title">
+    <End Role="job_title" Type="Self.job_title" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="job_title">
+        <PropertyRef Name="job_title_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="job_title_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employees_pen_providers">
+    <End Role="pen_providers" Type="Self.pen_providers" Multiplicity="0..1" />
+    <End Role="employees" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pen_providers">
+        <PropertyRef Name="pen_provider_id" />
+      </Principal>
+      <Dependent Role="employees">
+        <PropertyRef Name="pen_provider_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_job_title_job_class">
+    <End Role="job_class" Type="Self.job_class" Multiplicity="0..1" />
+    <End Role="job_title" Type="Self.job_title" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="job_class">
+        <PropertyRef Name="job_class_id" />
+      </Principal>
+      <Dependent Role="job_title">
+        <PropertyRef Name="job_class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_job_title_job_class1">
+    <End Role="job_class" Type="Self.job_class" Multiplicity="0..1" />
+    <End Role="job_title" Type="Self.job_title" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="job_class">
+        <PropertyRef Name="job_class_id" />
+      </Principal>
+      <Dependent Role="job_title">
+        <PropertyRef Name="job_class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HumanResourceEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="banks" EntityType="Self.bank" />
+    <EntitySet Name="cadres" EntityType="Self.cadre" />
+    <EntitySet Name="comp_branch" EntityType="Self.comp_branch" />
+    <EntitySet Name="companies" EntityType="Self.company" />
+    <EntitySet Name="departments" EntityType="Self.department" />
+    <EntitySet Name="dept_units" EntityType="Self.dept_units" />
+    <EntitySet Name="divisions" EntityType="Self.division" />
+    <EntitySet Name="employee_type" EntityType="Self.employee_type" />
+    <EntitySet Name="employees" EntityType="Self.employee" />
+    <EntitySet Name="grades" EntityType="Self.grade" />
+    <EntitySet Name="grade_level" EntityType="Self.grade_level" />
+    <EntitySet Name="job_class" EntityType="Self.job_class" />
+    <EntitySet Name="job_title" EntityType="Self.job_title" />
+    <EntitySet Name="pen_providers" EntityType="Self.pen_providers" />
+    <EntitySet Name="states" EntityType="Self.state" />
+    <EntitySet Name="steps" EntityType="Self.step" />
+    <AssociationSet Name="FK_employees_banks" Association="Self.FK_employees_banks">
+      <End Role="banks" EntitySet="banks" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_comp_branch_company" Association="Self.FK_comp_branch_company">
+      <End Role="company" EntitySet="companies" />
+      <End Role="comp_branch" EntitySet="comp_branch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_comp_branch" Association="Self.FK_employees_comp_branch">
+      <End Role="comp_branch" EntitySet="comp_branch" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_departments_company" Association="Self.FK_departments_company">
+      <End Role="company" EntitySet="companies" />
+      <End Role="departments" EntitySet="departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_divisions_company" Association="Self.FK_divisions_company">
+      <End Role="company" EntitySet="companies" />
+      <End Role="divisions" EntitySet="divisions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_company" Association="Self.FK_employees_company">
+      <End Role="company" EntitySet="companies" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_job_class_company" Association="Self.FK_job_class_company">
+      <End Role="company" EntitySet="companies" />
+      <End Role="job_class" EntitySet="job_class" />
+    </AssociationSet>
+    <AssociationSet Name="FK_job_title_company" Association="Self.FK_job_title_company">
+      <End Role="company" EntitySet="companies" />
+      <End Role="job_title" EntitySet="job_title" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_departments" Association="Self.FK_employees_departments">
+      <End Role="departments" EntitySet="departments" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_job_title_departments" Association="Self.FK_job_title_departments">
+      <End Role="departments" EntitySet="departments" />
+      <End Role="job_title" EntitySet="job_title" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_dept_units" Association="Self.FK_employees_dept_units">
+      <End Role="dept_units" EntitySet="dept_units" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_divisions" Association="Self.FK_employees_divisions">
+      <End Role="divisions" EntitySet="divisions" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_employee_type" Association="Self.FK_employees_employee_type">
+      <End Role="employee_type" EntitySet="employee_type" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_grade_level" Association="Self.FK_employees_grade_level">
+      <End Role="grade_level" EntitySet="grade_level" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_job_title" Association="Self.FK_employees_job_title">
+      <End Role="job_title" EntitySet="job_title" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employees_pen_providers" Association="Self.FK_employees_pen_providers">
+      <End Role="pen_providers" EntitySet="pen_providers" />
+      <End Role="employees" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_job_title_job_class" Association="Self.FK_job_title_job_class">
+      <End Role="job_class" EntitySet="job_class" />
+      <End Role="job_title" EntitySet="job_title" />
+    </AssociationSet>
+    <AssociationSet Name="FK_job_title_job_class1" Association="Self.FK_job_title_job_class1">
+      <End Role="job_class" EntitySet="job_class" />
+      <End Role="job_title" EntitySet="job_title" />
+    </AssociationSet>
+    <EntitySet Name="users" EntityType="HumanResourceModel.user" />
+  </EntityContainer>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="f_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="m_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="sur_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="user_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="emp_id" Type="Int32" />
+    <Property Name="comp_id" Type="Int32" />
+  </EntityType>
+</Schema>

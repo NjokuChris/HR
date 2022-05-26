@@ -1,0 +1,323 @@
+﻿@model BOL.employee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.f_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.m_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.m_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.l_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.l_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employee_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employee_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hire_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hire_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.confirm_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.confirm_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.confirm_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.confirm_status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.birth_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.birth_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.H_address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.H_address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marital_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marital_status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state_origin_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state_origin_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prob_period)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prob_period)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bank_acc_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bank_acc_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pen_pin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pen_pin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quali_summ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quali_summ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wed_anni_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wed_anni_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.no_child)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.no_child)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hobby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hobby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.salary_annual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salary_annual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bank.bank_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bank.bank_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comp_branch.branch_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comp_branch.branch_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.company.company1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.company.company1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.department.department_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.department.department_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dept_units.dept_unit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dept_units.dept_unit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.division.division1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.division.division1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employee_type.employee_type1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employee_type.employee_type1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grade_level.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grade_level.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.job_title.job_title1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job_title.job_title1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pen_providers.pen_provider_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pen_providers.pen_provider_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.employee_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
